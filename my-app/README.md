@@ -80,10 +80,31 @@ cd ..\my-app
 npm run dev
 ```
 
+Opcionális frontend env (ha nem localhost API-t hasznalsz):
+
+```bash
+# my-app/.env
+VITE_API_BASE_URL=https://your-backend-domain/api
+```
+
 ### 4. Ellenorzes
 
 - Frontend: http://localhost:5173
 - Backend health: http://localhost:3001/api/health
+
+## Elo demo deploy (ajanlott)
+
+- Frontend: Vercel (Root Directory: `my-app`, Build: `npm run build`, Output: `dist`)
+- Backend: Render (Root Directory: `server`, Build: `npm install`, Start: `npm run start`)
+
+Szukseges env a backenden:
+
+- `JWT_SECRET` = eros, egyedi string
+- `CLIENT_URL` = a Vercel frontend URL-je
+
+Szukseges env a frontenden:
+
+- `VITE_API_BASE_URL` = a Render backend URL + `/api`
 
 ### 5. Build
 
