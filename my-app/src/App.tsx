@@ -1020,11 +1020,11 @@ function App() {
 
           {/* Mobile kereső */}
           <div className="mt-4 md:hidden">
-            <div className="mb-3 flex items-center gap-2">
+            <div className="mb-3 grid grid-cols-2 gap-2">
               <button
                 type="button"
                 onClick={goHome}
-                className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${isHomeView
+                className={`min-h-[44px] px-3 py-2.5 rounded-xl text-sm font-semibold transition-colors ${isHomeView
                   ? 'bg-amber-300 text-amber-950 dark:bg-sky-700 dark:text-white'
                   : 'bg-amber-100 text-amber-900 dark:bg-sky-900/40 dark:text-sky-100'}`}
               >
@@ -1033,7 +1033,7 @@ function App() {
               <button
                 type="button"
                 onClick={openProductsPage}
-                className={`px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${isProductsView
+                className={`min-h-[44px] px-3 py-2.5 rounded-xl text-sm font-semibold transition-colors ${isProductsView
                   ? 'bg-amber-300 text-amber-950 dark:bg-sky-700 dark:text-white'
                   : 'bg-amber-100 text-amber-900 dark:bg-sky-900/40 dark:text-sky-100'}`}
               >
@@ -1046,7 +1046,7 @@ function App() {
                 placeholder="Keresés..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-10 pr-4 border border-amber-300 dark:border-sky-500/60 rounded-xl bg-amber-50/90 dark:bg-sky-950/40 text-amber-950 dark:text-sky-100 placeholder:text-amber-700/70 dark:placeholder:text-sky-300/70 focus:ring-2 focus:ring-amber-400 dark:focus:ring-sky-500 focus:border-transparent shadow-sm transition-all duration-200"
+                className="w-full min-h-[46px] px-4 py-3 pl-10 pr-4 border border-amber-300 dark:border-sky-500/60 rounded-xl bg-amber-50/90 dark:bg-sky-950/40 text-amber-950 dark:text-sky-100 placeholder:text-amber-700/70 dark:placeholder:text-sky-300/70 focus:ring-2 focus:ring-amber-400 dark:focus:ring-sky-500 focus:border-transparent shadow-sm transition-all duration-200"
               />
               <span className="absolute left-3 top-3.5 text-amber-600 dark:text-sky-300" aria-hidden="true">
                 <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -1236,24 +1236,25 @@ function App() {
           <>
             {!showProductsPage && (
               <>
-            <section className="mb-6 rounded-3xl overflow-hidden border border-amber-300 dark:border-sky-700/60 shadow-xl">
-              <div className="bg-[radial-gradient(circle_at_10%_20%,#fde68a_0%,#f59e0b_38%,#f97316_70%,#ea580c_100%)] dark:bg-[radial-gradient(circle_at_10%_20%,#0c4a6e_0%,#0369a1_45%,#0f172a_100%)] text-white p-6 md:p-10">
-                <p className="uppercase tracking-[0.22em] text-xs font-semibold text-amber-50/90 dark:text-sky-100/80">Modern Kiegészítők</p>
-                <h2 className="mt-2 text-3xl md:text-5xl font-black leading-tight">Heti Akciók és Válogatott Ajánlatok</h2>
-                <p className="mt-4 max-w-2xl text-amber-50/95 dark:text-sky-100/90 text-sm md:text-base">
-                  Minden héten új kedvencek, extra árakkal. Nézd meg az aktuális akciókat és azokat a termékeket,
-                  amiket a vásárlóink a legjobban szeretnek.
+            <section className="mb-8 rounded-3xl overflow-hidden border border-amber-300 dark:border-sky-700/60 shadow-2xl transition-all duration-500 hover:shadow-[0_25px_70px_-25px_rgba(249,115,22,0.45)] dark:hover:shadow-[0_25px_70px_-25px_rgba(14,165,233,0.38)]">
+              <div className="relative bg-[radial-gradient(circle_at_10%_20%,#fde68a_0%,#f59e0b_38%,#f97316_70%,#ea580c_100%)] dark:bg-[radial-gradient(circle_at_10%_20%,#0c4a6e_0%,#0369a1_45%,#0f172a_100%)] text-white p-7 md:p-14">
+                <div className="absolute -right-10 -top-10 w-36 h-36 rounded-full bg-white/15 blur-md animate-pulse" aria-hidden="true" />
+                <div className="absolute -left-6 -bottom-8 w-28 h-28 rounded-full bg-white/10 blur-md animate-pulse" aria-hidden="true" />
+                <p className="uppercase tracking-[0.24em] text-xs font-semibold text-amber-50/90 dark:text-sky-100/80">Modern Kiegészítők</p>
+                <h2 className="mt-3 text-4xl sm:text-5xl md:text-6xl font-black leading-[1.05] tracking-tight">Fedezd fel a legjobb kiegészítőket</h2>
+                <p className="mt-5 max-w-2xl text-amber-50/95 dark:text-sky-100/90 text-base md:text-lg transition-opacity duration-500">
+                  Minőségi tech eszközök, friss akciók és vásárlóink kedvencei egy helyen. Kattints, válogass, és rakd össze a saját setupod.
                 </p>
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-8 flex flex-wrap gap-3">
                   <button
                     onClick={openProductsPage}
-                    className="px-5 py-2.5 rounded-xl bg-white text-amber-700 dark:text-sky-700 font-semibold hover:bg-amber-100 dark:hover:bg-sky-100 transition-colors"
+                    className="min-h-[46px] px-6 py-3 rounded-xl bg-white text-amber-700 dark:text-sky-700 font-bold hover:bg-amber-100 dark:hover:bg-sky-100 transition-all duration-200 hover:scale-[1.03] hover:shadow-lg"
                   >
-                    Termékek böngészése
+                    Vásárlás most
                   </button>
                   <button
                     onClick={() => setShowFavoritesOnly(true)}
-                    className="px-5 py-2.5 rounded-xl border border-white/70 text-white font-semibold hover:bg-white/10 transition-colors"
+                    className="min-h-[46px] px-6 py-3 rounded-xl border border-white/70 text-white font-semibold hover:bg-white/10 transition-all duration-200 hover:scale-[1.03]"
                   >
                     Kedvencek nézete
                   </button>
@@ -1354,7 +1355,7 @@ function App() {
                 <div className="md:hidden mb-4">
                   <button
                     onClick={() => setShowFiltersMobile(true)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl border border-amber-300 dark:border-sky-600/60 bg-amber-100 dark:bg-sky-900/40 text-amber-900 dark:text-sky-100 font-medium text-sm shadow-sm"
+                    className="min-h-[44px] flex items-center gap-2 px-4 py-2.5 rounded-xl border border-amber-300 dark:border-sky-600/60 bg-amber-100 dark:bg-sky-900/40 text-amber-900 dark:text-sky-100 font-medium text-sm shadow-sm"
                   >
                     <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 3H2l8 9.46V19l4 2v-8.54z" />
