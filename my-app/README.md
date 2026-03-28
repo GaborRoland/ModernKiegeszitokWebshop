@@ -99,7 +99,7 @@ VITE_API_BASE_URL=https://your-backend-domain/api
 
 Szukseges env a backenden:
 
-- `JWT_SECRET` = eros, egyedi string
+- `JWT_SECRET` = SvP0WTiMh4MczYd2oGaGyPAw5UK5lYTW
 - `CLIENT_URL` = a Vercel frontend URL-je
 
 Szukseges env a frontenden:
