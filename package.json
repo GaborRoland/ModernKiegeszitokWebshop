@@ -1,0 +1,16 @@
+{
+  "name": "react1-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "predev": "kill-port 3001 5173",
+    "dev": "concurrently -n backend,frontend -c green,blue \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm --prefix server run dev",
+    "dev:frontend": "npm --prefix my-app run dev",
+    "seed": "npm --prefix server run seed"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "kill-port": "^2.0.1"
+  }
+}
