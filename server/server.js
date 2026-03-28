@@ -7,6 +7,7 @@ import { createAuthRoutes } from './routes/auth.js';
 import { createProductRoutes } from './routes/products.js';
 import { createOrderRoutes } from './routes/orders.js';
 import { createAdminRoutes } from './routes/admin.js';
+import { seedDatabase } from './seed.js';
 
 dotenv.config();
 
@@ -42,6 +43,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Adatbázis inicializálása
 const db = initializeDatabase();
+
+db.get('SELECT COUNT(*) AS count FROM products', (err, row) => {
+  if (err) {
+    console.error('Nem sikerült ellenőrizni a termék táblát:', err);
+    return;
+  }
+
+  if ((row?.count ?? 0) === 0) {
+    console.log('ℹ️ Üres terméklista észlelve, automatikus seed indul...');
+    seedDatabase(db);
+  }
+});
 
 // Útvonalak csatlakoztatása
 app.use('/api/auth', createAuthRoutes(db));
